@@ -1,4 +1,3 @@
-import entity.Word;
 import game.DictionaryService;
 import game.GameService;
 import repository.FileDictionaryRepository;

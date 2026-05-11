@@ -1,6 +1,6 @@
 package game;
 
-import entity.Word;
+import model.Word;
 
 public class GameService {
     DictionaryService dictionaryService;
