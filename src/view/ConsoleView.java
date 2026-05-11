@@ -1,12 +1,16 @@
 package view;
 
-import game.Game;
+import game.GameService;
 
 import java.util.Scanner;
 
 public class ConsoleView {
+    private final GameService newGame;
     Scanner scanner = new Scanner(System.in);
-    MenuOption menuOption;
+
+    public ConsoleView(GameService newGame) {
+        this.newGame = newGame;
+    }
 
     public void startGame() {
         while (true) {
@@ -17,7 +21,7 @@ public class ConsoleView {
 
             int choice = getInput();
             switch (choice) {
-                case 1 -> new Game(); // will be soon!
+                case 1 -> newGame.printStr(); // will be soon!
                 case 0 -> {
                     System.out.println("Exit...");
                     return;
