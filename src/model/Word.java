@@ -11,7 +11,11 @@ public class Word {
         this.targetWord = targetWord.toLowerCase();
     }
 
-    public boolean guess(char letter) {
+    public String getTargetWord() {
+        return targetWord;
+    }
+
+    public boolean guessLetter(char letter) {
         char lowerCaseLetter = Character.toLowerCase(letter);
         if (targetWord.indexOf(lowerCaseLetter) != -1) {
             guessedLetters.add(lowerCaseLetter);

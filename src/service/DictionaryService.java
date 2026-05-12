@@ -1,8 +1,7 @@
-package game;
+package service;
 
 import repository.FileDictionaryRepository;
 
-import javax.swing.*;
 import java.util.List;
 import java.util.Random;
 

@@ -1,5 +1,5 @@
-import game.DictionaryService;
-import game.GameService;
+import service.DictionaryService;
+import service.GameService;
 import repository.FileDictionaryRepository;
 import view.ConsoleView;
 
@@ -7,9 +7,9 @@ public  class Main {
     public static void main(String[] args) {
         FileDictionaryRepository repository = new FileDictionaryRepository("src/resources/russian_nouns.txt");
         DictionaryService dictionaryService = new DictionaryService(repository);
-
         GameService newGame = new GameService(dictionaryService);
+
         ConsoleView consoleView = new ConsoleView(newGame);
-        consoleView.startGame();
+        consoleView.runConsoleView();
     }
 }
