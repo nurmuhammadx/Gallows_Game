@@ -19,9 +19,7 @@ public class GameService {
     }
 
     public void processLetter(char letter) {
-        boolean guess = newWord.guessLetter(letter);
-        System.out.println(newWord.getHiddenWord());
-        if (!guess) {
+        if (!newWord.guessLetter(letter)) {
             lives--;
         }
         isWin = newWord.isFullyGuess();
@@ -39,4 +37,7 @@ public class GameService {
         return newWord.getHiddenWord();
     }
 
+    public String getTargetWord() {
+        return newWord.getTargetWord();
+    }
 }

@@ -16,7 +16,7 @@ public class FileDictionaryRepository {
         try {
             return Files.readAllLines(Paths.get(filePath));
         } catch (IOException e) {
-            throw new RuntimeException("Couldn't read the dictionary",e);
+            throw new RuntimeException("Couldn't read the dictionary on path: " + filePath, e);
         }
     }
 }
