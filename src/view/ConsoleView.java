@@ -21,8 +21,9 @@ public class ConsoleView {
             System.out.print("Enter your choice: ");
             int choice = getInput();
             switch (choice) {
-                case 1 -> start();
+                case 1 -> startGame();
                 case 0 -> {
+                    System.out.println("Exit...");
                     return;
                 }
                 default -> System.out.println("Incorrect choice, enter 1 or 0!");
@@ -30,7 +31,7 @@ public class ConsoleView {
         }
     }
 
-    private void start() {
+    private void startGame() {
         gameService.startNewGame();
         System.out.println("\n=== Game ===");
         while (!gameService.isGameOver()) {
@@ -44,7 +45,6 @@ public class ConsoleView {
             gameService.processLetter(letter);
         }
         printResult();
-        run();
     }
 
     private void printResult() {
