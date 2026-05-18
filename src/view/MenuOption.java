@@ -1,7 +1,7 @@
 package view;
 
 public enum MenuOption {
-    NEW_GAME(1, "New GameService"),
+    NEW_GAME(1, "New Game"),
     EXIT_GAME(0, "Exit");
 
     private final int value;

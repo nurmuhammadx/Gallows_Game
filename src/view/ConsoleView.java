@@ -9,8 +9,8 @@ public class ConsoleView {
     private final Scanner scanner = new Scanner(System.in);
     private final GameService gameService;
 
-    public ConsoleView(GameService newGame) {
-        this.gameService = newGame;
+    public ConsoleView(GameService gameService) {
+        this.gameService = gameService;
     }
 
     public void run() {
@@ -41,7 +41,9 @@ public class ConsoleView {
             if (gameService.getLives() <= 5) {
                 System.out.println(GallowsGraphics.STAGES.get(5 - gameService.getLives()));
             }
-            System.out.println("Your lives: " + gameService.getLives());
+            System.out.print("Input letters: ");
+            gameService.printInputLetters();
+            System.out.println("\nYour lives: " + gameService.getLives());
             System.out.print("Enter letter: ");
             char letter = scanner.next().charAt(0);
             gameService.processLetter(letter);
