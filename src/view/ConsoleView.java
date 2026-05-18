@@ -1,11 +1,13 @@
 package view;
 
 import service.GameService;
+import validation.InputValidator;
+
 import java.util.Scanner;
 
 public class ConsoleView {
+    private final Scanner scanner = new Scanner(System.in);
     private final GameService gameService;
-    Scanner scanner = new Scanner(System.in);
 
     public ConsoleView(GameService newGame) {
         this.gameService = newGame;
@@ -17,13 +19,13 @@ public class ConsoleView {
             for (MenuOption menuOption : MenuOption.values()) {
                     System.out.printf("%d. %s%n", menuOption.getValue(), menuOption.getDescription());
             }
-
             System.out.print("Enter your choice: ");
-            int choice = getInput();
+            int choice = InputValidator.getValidInt(scanner);
             switch (choice) {
                 case 1 -> startGame();
                 case 0 -> {
                     System.out.println("Exit...");
+                    scanner.close();
                     return;
                 }
                 default -> System.out.println("Incorrect choice, enter 1 or 0!");
@@ -41,7 +43,7 @@ public class ConsoleView {
             }
             System.out.println("Your lives: " + gameService.getLives());
             System.out.print("Enter letter: ");
-            char letter = scanner.nextLine().charAt(0);
+            char letter = scanner.next().charAt(0);
             gameService.processLetter(letter);
         }
         printResult();
@@ -57,9 +59,4 @@ public class ConsoleView {
             System.out.println("The hidden word: " + gameService.getTargetWord());
         }
     }
-
-    private int getInput() {
-        return Integer.parseInt(scanner.nextLine());
-    }
-
 }

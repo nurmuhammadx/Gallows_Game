@@ -12,6 +12,3 @@ public  class Main {
         consoleView.run();
     }
 }
-/*
-todo: 1) validation & some fix
- */
