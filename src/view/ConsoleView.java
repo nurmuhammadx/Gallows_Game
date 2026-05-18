@@ -6,6 +6,7 @@ import validation.InputValidator;
 import java.util.Scanner;
 
 public class ConsoleView {
+    private final int STATES = 5;
     private final Scanner scanner = new Scanner(System.in);
     private final GameService gameService;
 
@@ -38,8 +39,8 @@ public class ConsoleView {
         System.out.println("\n=== Game ===");
         while (!gameService.isGameOver()) {
             System.out.println(gameService.getHiddenWord());
-            if (gameService.getLives() <= 5) {
-                System.out.println(GallowsGraphics.STAGES.get(5 - gameService.getLives()));
+            if (gameService.getLives() <= STATES) {
+                System.out.println(GallowsGraphics.STAGES.get(STATES - gameService.getLives()));
             }
             System.out.print("Input letters: ");
             gameService.printInputLetters();
@@ -53,7 +54,7 @@ public class ConsoleView {
 
     private void printResult() {
         if (gameService.getLives() == 0) {
-            System.out.println(GallowsGraphics.STAGES.get(5));
+            System.out.println(GallowsGraphics.STAGES.get(STATES));
             System.out.println("=== You lose!  ===");
             System.out.println("The hidden word: " + gameService.getTargetWord());
         } else {
